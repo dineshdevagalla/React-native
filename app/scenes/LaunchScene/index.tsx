@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Image, Text} from 'react-native';
+import {Image, Text, View} from 'react-native';
 
 import Images from '../../images';
 
@@ -10,8 +10,10 @@ class LaunchScene extends Component {
     return (
       <Fragment>
         <LaunchScreenWrapper>
-          <Image source={Images.ibHubsLogo} />
-          <Text>Hello World</Text>
+          <View>
+            <Image source={Images.ibHubsLogo} />
+            <Text>Hello World</Text>
+          </View>
         </LaunchScreenWrapper>
       </Fragment>
     );

@@ -15,7 +15,9 @@ import {
   Text,
   StatusBar,
   Image,
+  TouchableOpacity,
 } from 'react-native';
+import {Actions} from 'react-native-router-flux';
 import {
   Header,
   LearnMoreLinks,
@@ -32,13 +34,16 @@ import Images from '../../images';
 import I18n from '../../i18n/i18n';
 
 var global: any;
+const onPress = () => {
+  Actions.SIGNIN_SCENE();
+};
 const AppScene = () => {
   const goToLaunchScreen = () => {
     goToLaunchScene();
   };
   return (
     <Fragment>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="dark-content" backgroundColor="skyblue" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
@@ -51,6 +56,15 @@ const AppScene = () => {
           )}
           <Image source={Images.ibHubsLogo} />
           <View style={styles.body}>
+            <View>
+              <TouchableOpacity onPress={onPress} style={styles.button}>
+                <Text>Go To Forms Demo</Text>
+              </TouchableOpacity>
+              <Text style={styles.sectionContainer}>
+                {' '}
+                click the above one to go to Home page
+              </Text>
+            </View>
             <View style={styles.sectionContainer}>
               <Text>{EnvironmentConstants.SAMPLE_ENV_VARIABLE}</Text>
               <Text style={styles.sectionTitle}>{I18n.t('stepOne')}</Text>
@@ -124,6 +138,17 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+  },
+  button: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    marginTop: 10,
+    fontSize: 24,
+    fontWeight: '600',
+    color: Colors.black,
   },
 });
 
